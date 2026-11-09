@@ -17,27 +17,43 @@ void main() {
   const largeText = 1.3;
 
   for (final MapEntry(key: name, value: size) in screens.entries) {
-    testApp('every screen lays out on a $name phone at text scale $largeText', (tester, _) async {
-      await registerAndOpenProduct(tester);
+    testApp(
+      'every screen lays out on a $name phone at text scale $largeText',
+      (tester, _) async {
+        await tester.tapText('Log In');
+        expect(find.text('Enter your phone\nnumber'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+        await tester.tap(find.bySemanticsLabel('Back'));
+        await tester.pumpAndSettle();
 
-      await tester.tap(find.byTooltip('Back'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.bySemanticsLabel('Reward'));
-      await tester.pumpAndSettle();
-      expect(find.text('680,000'), findsOneWidget);
+        await registerAndOpenProduct(tester);
 
-      // On the small phone the tabs start below the fold.
-      await tester.scrollUntilVisible(
-        find.text('Gift'),
-        AppSpacing.huge,
-        scrollable: find.descendant(of: find.byType(RewardsPage), matching: find.byType(Scrollable)).first,
-      );
-      await tester.tapText('Gift');
-      expect(find.text('Gift'), findsOneWidget);
+        await tester.tap(find.byTooltip('Back'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.bySemanticsLabel('Reward'));
+        await tester.pumpAndSettle();
+        expect(find.text('680,000'), findsOneWidget);
 
-      await tester.tap(find.bySemanticsLabel('Settings'));
-      await tester.pumpAndSettle();
-      expect(find.byKey(const Key('logout-row')), findsOneWidget);
-    }, size: size, textScale: largeText);
+        // On the small phone the tabs start below the fold.
+        await tester.scrollUntilVisible(
+          find.text('Gift'),
+          AppSpacing.huge,
+          scrollable: find
+              .descendant(
+                of: find.byType(RewardsPage),
+                matching: find.byType(Scrollable),
+              )
+              .first,
+        );
+        await tester.tapText('Gift');
+        expect(find.text('Gift'), findsOneWidget);
+
+        await tester.tap(find.bySemanticsLabel('Settings'));
+        await tester.pumpAndSettle();
+        expect(find.byKey(const Key('logout-row')), findsOneWidget);
+      },
+      size: size,
+      textScale: largeText,
+    );
   }
 }

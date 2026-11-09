@@ -32,27 +32,37 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final palette = context.palette;
     final enabled = onPressed != null && !loading;
-    // AnimatedSize (not a LayoutBuilder) does the morph, so the button can
-    // still report its intrinsic size inside SliverFillRemaining.
-    return Center(
-      child: PressableScale(
-        onTap: enabled ? onPressed : null,
-        semanticLabel: label,
+    // Keep the full-width constraint outside the animation. AnimatedContainer
+    // cannot interpolate between double.infinity and a finite spinner width.
+    // AnimatedSize instead sees the child's resolved, finite layout sizes and
+    // safely morphs between the pill and the circle.
+    return SizedBox(
+      width: double.infinity,
+      height: AppSpacing.buttonHeight,
+      child: Center(
         child: AnimatedSize(
           duration: context.motion(AppDurations.morph),
           curve: AppCurves.standard,
-          child: AnimatedContainer(
-            duration: context.motion(AppDurations.short),
-            width: loading ? AppSpacing.buttonHeight : double.infinity,
-            height: AppSpacing.buttonHeight,
-            decoration: BoxDecoration(
-              color: onPressed == null ? palette.sky.withValues(alpha: 0.45) : palette.sky,
-              borderRadius: AppRadii.button,
-            ),
-            alignment: Alignment.center,
-            child: AnimatedSwitcher(
-              duration: context.motion(AppDurations.short),
-              child: loading ? _spinner(palette) : _label(context, palette),
+          child: PressableScale(
+            onTap: enabled ? onPressed : null,
+            semanticLabel: label,
+            child: SizedBox(
+              width: loading ? AppSpacing.buttonHeight : double.infinity,
+              height: AppSpacing.buttonHeight,
+              child: AnimatedContainer(
+                duration: context.motion(AppDurations.short),
+                decoration: BoxDecoration(
+                  color: onPressed == null
+                      ? palette.sky.withValues(alpha: 0.45)
+                      : palette.sky,
+                  borderRadius: AppRadii.button,
+                ),
+                alignment: Alignment.center,
+                child: AnimatedSwitcher(
+                  duration: context.motion(AppDurations.short),
+                  child: loading ? _spinner(palette) : _label(context, palette),
+                ),
+              ),
             ),
           ),
         ),
@@ -63,26 +73,35 @@ class PrimaryButton extends StatelessWidget {
   Widget _spinner(AppPalette palette) => SizedBox.square(
     key: const ValueKey('spinner'),
     dimension: _spinnerSize,
-    child: CircularProgressIndicator(strokeWidth: _spinnerStroke, color: palette.onAccent),
+    child: CircularProgressIndicator(
+      strokeWidth: _spinnerStroke,
+      color: palette.onAccent,
+    ),
   );
 
   Widget _label(BuildContext context, AppPalette palette) {
     final style = context.text.labelLarge?.copyWith(color: palette.onAccent);
-    return Row(
+    return Padding(
       key: const ValueKey('label'),
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Flexible(child: Text(label, style: style, maxLines: 1, overflow: TextOverflow.ellipsis)),
-        if (trailing != null) ...[
-          Container(
-            width: 1,
-            height: _dividerHeight,
-            margin: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
-            color: palette.onAccent.withValues(alpha: 0.6),
-          ),
-          Text(trailing!, style: style),
-        ],
-      ],
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(label, style: style, maxLines: 1),
+            if (trailing != null) ...[
+              Container(
+                width: 1,
+                height: _dividerHeight,
+                margin: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
+                color: palette.onAccent.withValues(alpha: 0.6),
+              ),
+              Text(trailing!, style: style, maxLines: 1),
+            ],
+          ],
+        ),
+      ),
     );
   }
 }

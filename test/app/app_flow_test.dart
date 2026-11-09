@@ -8,9 +8,17 @@ import '../support/test_app.dart';
 void main() {
   testApp('Register → Welcome → Home → Product detail', (tester, _) async {
     await registerAndOpenProduct(tester);
+
+    await tester.tapText('ADD TO CART');
+    await tester.pumpAndSettle();
+    expect(find.text('Added 2 × Coconut Donut to your cart'), findsOneWidget);
+    expect(tester.takeException(), isNull);
   });
 
-  testApp('log out returns to onboarding; logging back in skips registration', (tester, _) async {
+  testApp('log out returns to onboarding; logging back in skips registration', (
+    tester,
+    _,
+  ) async {
     await registerThroughOtp(tester);
     await finishRegistration(tester);
     await tester.tapText("LET'S EXPLORE");
@@ -25,10 +33,17 @@ void main() {
     await tester.enterField(const Key('phone-field'), newUserPhone);
     await tester.tapText('CONTINUE');
     await tester.waitForFakeCall();
-    await tester.enterText(find.byKey(const Key('otp-field')), FakeAuthRepository.acceptedOtp);
+    await tester.enterText(
+      find.byKey(const Key('otp-field')),
+      FakeAuthRepository.acceptedOtp,
+    );
     await tester.waitForFakeCall();
 
-    expect(find.text('Ye Min Phyoe Win'), findsOneWidget, reason: 'straight from OTP to Home');
+    expect(
+      find.text('Ye Min Phyoe Win'),
+      findsOneWidget,
+      reason: 'straight from OTP to Home',
+    );
   });
 
   testApp('Rewards reads the same member record as Home', (tester, _) async {
