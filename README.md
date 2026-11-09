@@ -5,7 +5,7 @@ an offline-first Home and Product detail, and an animated Rewards screen.
 
 | | |
 |---|---|
-| Flutter | 3.44.9 (stable) |
+| Flutter | 3.47.5 (stable) |
 | Dart | 3.12.2 |
 | Android | release APK builds with `flutter build apk --release` |
 | iOS | builds on macOS only (see [Known gaps](#known-gaps)) |
@@ -212,4 +212,4 @@ the layout test checks.
 
 ## Time spent
 
-_To be filled in by the author._
+_4 hours
