@@ -1,0 +1,23 @@
+{
+  "member": {
+    "id": "me",
+    "name": "Hania",
+    "photoAsset": "assets/images/avatar_hania.png",
+    "photoUrl": "",
+    "tier": "silver",
+    "nextTier": "gold",
+    "pointsToNextTier": 500,
+    "totalPoints": 680000,
+    "tierProgress": 0.72,
+    "notificationCount": 2,
+    "rewardsCount": 3
+  },
+  "challenges": [
+    {"id": "c_coco_done", "title": "Eat 4 Coco donuts", "artKind": "donut", "tab": "earn", "progress": 4, "target": 4, "rewardPoints": 100, "imageAsset": "assets/images/donut_strawberry_sprinkles.png", "sortOrder": 0},
+    {"id": "c_coco_started", "title": "Eat 4 Coco donuts", "artKind": "donut", "tab": "earn", "progress": 1, "target": 4, "rewardPoints": 100, "imageAsset": "assets/images/donut_strawberry_sprinkles.png", "sortOrder": 1},
+    {"id": "c_americano", "title": "Drink 12 cups americano", "artKind": "arc", "tab": "earn", "progress": 9, "target": 12, "rewardPoints": 100, "imageAsset": "assets/images/coffee_americano.png", "sortOrder": 2},
+    {"id": "g_box", "title": "Gift a Mistletoe box", "artKind": "arc", "tab": "gift", "progress": 1, "target": 1, "rewardPoints": 300, "imageAsset": "assets/images/box_mistletoe.png", "sortOrder": 0},
+    {"id": "g_friends", "title": "Treat 3 friends to coffee", "artKind": "arc", "tab": "gift", "progress": 2, "target": 3, "rewardPoints": 200, "imageAsset": "assets/images/coffee_dalgona.png", "sortOrder": 1},
+    {"id": "g_cookies", "title": "Share a cookies set", "artKind": "donut", "tab": "gift", "progress": 2, "target": 4, "rewardPoints": 150, "imageAsset": "assets/images/donut_vanilla_sprinkles.png", "sortOrder": 2}
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "products": [
+    {"id": "p_coconut", "code": "JD022123", "name": "Coconut Donut", "priceMmk": 3200, "isNew": true, "discountPercent": null, "imageUrl": "/v1/images/donut_coconut.png", "imageAsset": "assets/images/donut_coconut.png", "description": "Enjoy our scrumptious donuts – soft, sweet, and satisfying in every bite. Choose from classic glazed, rich chocolate, or fun sprinkles. Dive into deliciousness now!"},
+    {"id": "p_mistletoe_box", "code": "JD031201", "name": "Mistletoe Romance box", "priceMmk": 18500, "isNew": false, "discountPercent": 50, "imageUrl": "/v1/images/box_mistletoe.png", "imageAsset": "assets/images/box_mistletoe.png", "description": "Six of our favourites in one festive box — strawberry, coconut, chocolate drizzle and more. Made for sharing under the mistletoe."},
+    {"id": "p_christmas_box", "code": "JD031202", "name": "Christmas Mini Family box", "priceMmk": 15900, "isNew": false, "discountPercent": 50, "imageUrl": "/v1/images/box_christmas.png", "imageAsset": "assets/images/box_christmas.png", "description": "A ribbon-tied box of six seasonal donuts, sized for the whole family's Christmas table."},
+    {"id": "p_strawberry_choc", "code": "JD022101", "name": "Strawberry Chocolate Donuts", "priceMmk": 2800, "isNew": false, "discountPercent": null, "imageUrl": "/v1/images/donut_strawberry_chocolate.png", "imageAsset": "assets/images/donut_strawberry_chocolate.png", "description": "Pink strawberry glaze striped with dark chocolate — the donut that started it all."},
+    {"id": "p_dalgona", "code": "JD041001", "name": "Dalgona Creamy Coffee", "priceMmk": 4500, "isNew": false, "discountPercent": null, "imageUrl": "/v1/images/coffee_dalgona.png", "imageAsset": "assets/images/coffee_dalgona.png", "description": "Iced milk topped with a thick cloud of whipped dalgona coffee. Stir it in or sip it slowly."},
+    {"id": "p_americano", "code": "JD041002", "name": "Iced Americano", "priceMmk": 3500, "isNew": false, "discountPercent": null, "imageUrl": "/v1/images/coffee_americano.png", "imageAsset": "assets/images/coffee_americano.png", "description": "A double shot over ice, finished with a splash of fresh milk."},
+    {"id": "p_santa_cookies", "code": "JD051001", "name": "Santa's favorite cookies set", "priceMmk": 6500, "isNew": false, "discountPercent": 20, "imageUrl": "/v1/images/cookies_set.png", "imageAsset": "assets/images/cookies_set.png", "description": "Six chewy chocolate-chip cookies — the plate Santa never leaves behind."},
+    {"id": "p_strawberry_sprinkles", "code": "JD022102", "name": "Strawberry Sprinkle Donut", "priceMmk": 2500, "isNew": false, "discountPercent": null, "imageUrl": "/v1/images/donut_strawberry_sprinkles.png", "imageAsset": "assets/images/donut_strawberry_sprinkles.png", "description": "Classic strawberry glaze covered in rainbow sprinkles."},
+    {"id": "p_grape", "code": "JD022103", "name": "Grape Galaxy Donut", "priceMmk": 2700, "isNew": true, "discountPercent": null, "imageUrl": "/v1/images/donut_grape_sprinkles.png", "imageAsset": "assets/images/donut_grape_sprinkles.png", "description": "Purple grape glaze scattered with starry sprinkles."},
+    {"id": "p_matcha", "code": "JD022104", "name": "Matcha Drizzle Donut", "priceMmk": 3000, "isNew": false, "discountPercent": null, "imageUrl": "/v1/images/donut_matcha.png", "imageAsset": "assets/images/donut_matcha.png", "description": "Earthy matcha glaze with a white chocolate drizzle."},
+    {"id": "p_caramel", "code": "JD022105", "name": "Salted Caramel Donut", "priceMmk": 2600, "isNew": false, "discountPercent": null, "imageUrl": "/v1/images/donut_caramel.png", "imageAsset": "assets/images/donut_caramel.png", "description": "Golden caramel glaze with a pinch of sea salt."},
+    {"id": "p_vanilla_sprinkles", "code": "JD022106", "name": "Vanilla Party Donut", "priceMmk": 2500, "isNew": false, "discountPercent": 20, "imageUrl": "/v1/images/donut_vanilla_sprinkles.png", "imageAsset": "assets/images/donut_vanilla_sprinkles.png", "description": "Vanilla glaze and a party of sprinkles on top."},
+    {"id": "p_choc_drizzle", "code": "JD022107", "name": "Chocolate Berry Drizzle", "priceMmk": 2900, "isNew": false, "discountPercent": 20, "imageUrl": "/v1/images/donut_chocolate_drizzle.png", "imageAsset": "assets/images/donut_chocolate_drizzle.png", "description": "Rich chocolate glaze zig-zagged with strawberry."}
+  ],
+  "banners": [
+    {"id": "b_new_shop", "title": "We are now at Central Boulevard", "badge": "New shop", "themeKey": "grape", "imageUrl": "/v1/images/banner_new_shop.png", "imageAsset": "assets/images/banner_new_shop.png", "sortOrder": 0},
+    {"id": "b_hot_deal", "title": "Hot deals on seasonal boxes", "badge": "50% off", "themeKey": "sky", "imageUrl": "/v1/images/box_christmas.png", "imageAsset": "assets/images/box_christmas.png", "sortOrder": 1},
+    {"id": "b_dalgona", "title": "Dalgona season is here", "badge": "New", "themeKey": "tangerine", "imageUrl": "/v1/images/coffee_dalgona.png", "imageAsset": "assets/images/coffee_dalgona.png", "sortOrder": 2}
+  ],
+  "sections": [
+    {"id": "seasonal", "title": "Seasonal specials", "layout": "wide", "sortOrder": 0, "productIds": ["p_mistletoe_box", "p_christmas_box"]},
+    {"id": "popular", "title": "Popular 🔥", "layout": "tall", "sortOrder": 1, "productIds": ["p_strawberry_choc", "p_dalgona", "p_coconut", "p_grape", "p_matcha"]},
+    {"id": "order_again", "title": "Order again", "layout": "compact", "sortOrder": 2, "productIds": ["p_santa_cookies", "p_vanilla_sprinkles", "p_choc_drizzle", "p_americano"]}
+  ],
+  "shops": [
+    {"id": "s_myaynigone", "name": "Myaynigone J'Donut", "address": "2972 Pyay Road, Sanchaung Township, Yangon.", "imageUrl": "/v1/images/shop_myaynigone.png", "imageAsset": "assets/images/shop_myaynigone.png", "sortOrder": 0},
+    {"id": "s_sanchaung", "name": "Sanchaung J'Donut", "address": "118 Baho Road, Sanchaung Township, Yangon.", "imageUrl": "/v1/images/shop_sanchaung.png", "imageAsset": "assets/images/shop_sanchaung.png", "sortOrder": 1},
+    {"id": "s_bahan", "name": "Bahan J'Donut", "address": "45 Shwegondine Road, Bahan Township, Yangon.", "imageUrl": "/v1/images/shop_bahan.png", "imageAsset": "assets/images/shop_bahan.png", "sortOrder": 2},
+    {"id": "s_downtown", "name": "Downtown J'Donut", "address": "301 Bogyoke Aung San Road, Pabedan Township, Yangon.", "imageUrl": "/v1/images/shop_downtown.png", "imageAsset": "assets/images/shop_downtown.png", "sortOrder": 3}
+  ]
+}
